@@ -14,7 +14,7 @@
 	?>
 				<article class="entry">
 
-					<a href="">
+					<a href="entry.php?id=<?=$entry['id']?>">
 						<h2><?=$entry['title'];?></h2>
 						<span class="date"><?=$entry['category']." | ".$entry['date_posted'];?></span>
 						<p>

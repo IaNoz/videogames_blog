@@ -21,13 +21,13 @@
 
 	<?php 
 		$entries = getEntries($db, null, $_GET['id']);
-		if(!empty($entries)):
+		if(!empty($entries) && mysqli_num_rows($entries) >= 1):
 
 			while($entry = mysqli_fetch_assoc($entries)):
 	?>
 				<article class="entry">
 
-					<a href="">
+					<a href="entry.php?id=<?=$entry['id']?>">
 						<h2><?=$entry['title'];?></h2>
 						<span class="date"><?=$entry['category']." | ".$entry['date_posted'];?></span>
 						<p>
@@ -37,9 +37,12 @@
 				</article>
 	<?php	
 			endwhile;
-		endif;
+		else:
 	?>
-	
+			<div class="alert">There are no entries for this category</div>
+	<?php 
+		endif; 
+	?>
 </div><!-- END OF MAIN -->
 	
 

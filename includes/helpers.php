@@ -80,3 +80,19 @@ function getEntries($conection, $limit = NULL, $category_id = NULL){
 
 	return $entries;
 }
+
+function getEntry($conection, $id){
+	$sql = "SELECT e.*,c.name AS 'category' FROM entries e
+			INNER JOIN categories c ON e.category_id = c.id
+			WHERE e.id = $id";
+	$entry = mysqli_query($conection, $sql);
+
+	$result = array();
+	
+	if ($entry && mysqli_num_rows($entry) >= 1){
+
+			$result = mysqli_fetch_assoc($entry);
+	}
+
+	return $result;
+}
