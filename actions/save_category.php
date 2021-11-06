@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST)){
-	require_once 'includes/conexion.php';
+	require_once '../includes/conection.php';
 
 	$name = isset($_POST['name']) ? mysqli_real_escape_string($db, $_POST['name']) : false;
 
@@ -21,4 +21,4 @@ if (isset($_POST)){
 	}
 }
 
-header("Location: index.php");
+header("Location: ../index.php");

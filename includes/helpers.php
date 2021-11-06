@@ -53,13 +53,17 @@ function getCategory($conection, $id){
 	return $result;
 }
 
-function getEntries($conection, $limit = NULL, $category_id = NULL){
+function getEntries($conection, $limit = NULL, $category_id = NULL, $search = NULL){
 	$sql = "SELECT e.*, c.name AS 'category' FROM entries e 
 			INNER JOIN categories c 
 			ON e.category_id = c.id";
 
 	if (isset($category_id)){
 		$sql .= " WHERE e.category_id = $category_id";
+	}
+
+	if (isset($search)){
+		$sql .= " WHERE e.title LIKE '%$search%'";
 	}
 
 	$sql .= " ORDER BY e.id DESC";
@@ -82,8 +86,10 @@ function getEntries($conection, $limit = NULL, $category_id = NULL){
 }
 
 function getEntry($conection, $id){
-	$sql = "SELECT e.*,c.name AS 'category' FROM entries e
+	$sql = "SELECT e.*,c.name AS 'category', 
+			CONCAT(u.name,' ',u.surname) AS user FROM entries e
 			INNER JOIN categories c ON e.category_id = c.id
+			INNER JOIN users u ON e.user_id = u.id
 			WHERE e.id = $id";
 	$entry = mysqli_query($conection, $sql);
 

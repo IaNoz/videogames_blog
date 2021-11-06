@@ -2,7 +2,8 @@
 
 <?php require_once 'includes/aside.php';?>
 
-<!-- CAJA PRINCIPAL -->
+<!--________________ MAIN __________________	-->
+
 <div id="main">
 	<h1>Last Entries</h1>
 
@@ -31,7 +32,9 @@
 	<div id="see-all">
 		<a href="entries.php">see all</a>
 	</div>
-</div><!-- END OF MAIN -->
+</div>
+
+<!-- ______________ END MAIN __________________ -->
 	
 
 <?php require_once 'includes/footer.php';?>

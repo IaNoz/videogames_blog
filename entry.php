@@ -1,4 +1,4 @@
-<?php require_once 'includes/conexion.php';?>
+<?php require_once 'includes/conection.php';?>
 
 <?php require_once 'includes/helpers.php';?>
 
@@ -23,11 +23,21 @@
 		<h2><?=$current_entry['category']?></h2>
 	</a>
 	
-	<h4><?=$current_entry['date_posted']?></h4>
+	<h4><?=$current_entry['date_posted']?> | <?=$current_entry['user']?></h4>
 	
 	<p>
 		<?=$current_entry['description']?>
 	</p>
+
+
+	<?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $current_entry['user_id']): ?>
+		<br />
+		<a href="edit-entry.php?id=<?=$current_entry['id']?>" class="button button-green">Edit entry</a>
+		<a href="actions/delete-entry.php?id=<?=$current_entry['id']?>" class="button">Delete entry</a>
+
+
+
+	<?php endif?>
 
 </div><!-- END OF MAIN -->
 

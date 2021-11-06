@@ -20,7 +20,7 @@
 
 			<?php endif;?>
 
-			<form action="user_update.php" method="POST">
+			<form action="actions/user_update.php" method="POST">
 				
 				<label for="name">Name</label>
 				<?= isset($_SESSION['errors']) ? 

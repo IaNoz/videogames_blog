@@ -10,7 +10,7 @@
 
 	create new categories. Allow users to to use this category on their entries.
 
-	<form action="save_category.php" method="POST">
+	<form action="actions/save_category.php" method="POST">
 		<label for="name">Name</label>
 		<input type="text" name="name" />
 

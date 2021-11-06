@@ -164,7 +164,7 @@ input[type="submit"],
 	margin-bottom: 5px;
 	display: block;
 	border-radius: 2px;
-	color: white;
+	color: white !important;
 	background: #007ee5;
 	border: 1px solid #156785;
 	cursor: pointer;

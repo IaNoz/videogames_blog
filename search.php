@@ -1,26 +1,23 @@
-<?php require_once 'includes/conection.php';?>
-
-<?php require_once 'includes/helpers.php';?>
-
 <?php 
-		$current_category = getCategory($db, $_GET['id']);
-
-		if(!isset($current_category['id'])){
-			header("Location: index.php");
-		}
+	if(!isset($_POST['search'])){
+		header("Location: index.php");
+	}
 ?>
 
 <?php require_once 'includes/header.php';?>
 
 <?php require_once 'includes/aside.php';?>
 
+
 <!-- CAJA PRINCIPAL -->
 <div id="main">
 	
-	<h1>Entries of <?=$current_category['name']?></h1>
+	<h1>Search <?=$_POST['search']?></h1>
 
 	<?php 
-		$entries = getEntries($db, null, $_GET['id']);
+		// SEARCH
+		$entries = getEntries($db, NULL, NULL, $_POST['search']);
+
 		if(!empty($entries) && mysqli_num_rows($entries) >= 1):
 
 			while($entry = mysqli_fetch_assoc($entries)):

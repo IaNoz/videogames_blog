@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST)){
 	// CONNECT TO DATABASE
-	require_once 'includes/conexion.php';
+	require_once '../includes/conection.php';
 
 	// GET SIGNUP VALUES BY POST
 	$name = isset($_POST['name']) ? mysqli_real_escape_string($db, $_POST['name']) : false;
@@ -61,4 +61,4 @@ if(isset($_POST)){
 		$_SESSION['errors'] = $errors;
 	}
 }
-header('Location: index.php');
+header('Location: ../index.php');

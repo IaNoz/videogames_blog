@@ -1,4 +1,4 @@
-<?php require_once 'conexion.php';?>
+<?php require_once 'conection.php';?>
 <?php require_once 'includes/helpers.php'; ?>
 <!DOCTYPE HTML>
 <!-- pagina index del proyecto -->

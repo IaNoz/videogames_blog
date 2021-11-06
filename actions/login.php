@@ -1,6 +1,6 @@
 <?php
 //initiate session and connection to db
-require_once 'includes/conexion.php';
+require_once '../includes/conection.php';
 
 // get values from form
 if(isset($_POST)){
@@ -39,4 +39,4 @@ if(isset($_POST)){
 	}
 }
 
-header('Location: index.php');
+header('Location: ../index.php');
